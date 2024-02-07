@@ -1,0 +1,4 @@
+baseURL = 'https://bible.jocomol.ch/'
+languageCode = 'en-us'
+title = 'Daily Bible verse'
+theme = 'lugo'
