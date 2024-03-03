@@ -1,3 +1,4 @@
+#!/bin/bash
 today=$(date -u +%Y-%m-%d)
 grep -hr $today bible-plans/* | while read -r p; do
     date=$(echo $p | cut -d "," -f 1 | sed 's/"//g')
