@@ -1,0 +1,3 @@
+[submodule "bible-plans"]
+	path = bible-plans
+	url = git@github.com:Jocomol/bible-plans.git

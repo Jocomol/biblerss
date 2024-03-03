@@ -1,5 +1,5 @@
 today=$(date -u +%Y-%m-%d)
-grep -hr $today plans/* | while read -r p; do
+grep -hr $today bible-plans/* | while read -r p; do
     date=$(echo $p | cut -d "," -f 1 | sed 's/"//g')
     verses=$(echo $p | cut -d "," -f 2 | sed 's/"//g')
     info=$(echo $p | cut -d "," -f 3 | sed 's/"//g')
