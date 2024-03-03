@@ -9,7 +9,7 @@ grep -hr $today bible-plans/* | while read -r p; do
     read -ra parts <<< "$verses"
     IFS=$OLDIFS
     for verse in "${parts[@]}"; do
-        versepath=$(echo $verse | sed  's/ //'| sed  's/ /_/g')
+        versepath=$(echo $verse | sed  's/ /_/g')
         hugo new $versepath.md
         echo \# $verse >> content/$versepath.md
 	echo $info  >> content/$versepath.md
