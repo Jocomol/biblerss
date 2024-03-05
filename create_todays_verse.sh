@@ -9,9 +9,10 @@ grep -hr $today bible-plans/* | while read -r p; do
     read -ra parts <<< "$verses"
     IFS=$OLDIFS
     for verse in "${parts[@]}"; do
-        versepath=$(echo $verse | sed  's/ /_/g')
+	cverse=$(echo $verse | sed 's/,/:/g')
+        versepath=$(echo $cverse | sed  's/ /_/g')
         hugo new $versepath.md
-        echo \# $verse >> content/$versepath.md
+        echo \# $cverse >> content/$versepath.md
         echo $info  >> content/$versepath.md
         echo "- SOLI DEO GLORIA" >> content/$versepath.md
     done
