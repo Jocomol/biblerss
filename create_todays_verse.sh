@@ -1,9 +1,9 @@
 #!/bin/bash
 today=$(date -u +%Y-%m-%d)
 grep -hr $today bible-plans/* | while read -r p; do
-    date=$(echo $p | cut -d "," -f 1 | sed 's/"//g')
-    verses=$(echo $p | cut -d "," -f 2 | sed 's/"//g')
-    info=$(echo $p | cut -d "," -f 3 | sed 's/"//g')
+    u=$(echo $p | sed 's/","/"_"/g')
+    date=$(echo $u | cut -d "_" -f 1 | sed 's/"//g')
+    verses=$(echo $u | cut -d "_" -f 2 | sed 's/"//g')
     OLDIFS=$IFS
     IFS=";"
     read -ra parts <<< "$verses"
@@ -12,7 +12,7 @@ grep -hr $today bible-plans/* | while read -r p; do
         versepath=$(echo $verse | sed  's/ /_/g')
         hugo new $versepath.md
         echo \# $verse >> content/$versepath.md
-	echo $info  >> content/$versepath.md
-	echo "- SOLI DEO GLORIA" >> content/$versepath.md
+        echo $info  >> content/$versepath.md
+        echo "- SOLI DEO GLORIA" >> content/$versepath.md
     done
 done
